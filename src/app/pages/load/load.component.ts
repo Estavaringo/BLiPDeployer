@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatSort, MatTableDataSource, MatDialog} from '@angular/material';
+import { AddBotComponent } from '../add-bot/add-bot.component';
 
 export interface Chatbot {
   name: string;
@@ -25,7 +25,7 @@ export class LoadComponent implements OnInit {
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
@@ -36,7 +36,18 @@ export class LoadComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  loadJson() {
+  openAddBotDialog(): void {
+    const dialogRef = this.dialog.open(AddBotComponent, {
+      width: `${window.innerWidth}px`,
+      data: ELEMENT_DATA,
+      disableClose: true
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
   }
 }
+
+
