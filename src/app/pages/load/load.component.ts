@@ -38,7 +38,7 @@ export class LoadComponent implements OnInit {
 
   openAddBotDialog(): void {
     const dialogRef = this.dialog.open(AddBotComponent, {
-      width: `${window.innerWidth}px`,
+      width: `${0.5 * window.innerWidth}px`,
       data: ELEMENT_DATA,
       disableClose: true
     });

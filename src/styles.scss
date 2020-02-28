@@ -3,9 +3,18 @@
 @import "./app/theme/theme-variables";
 @import "./app/theme/theme.scss";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~blip-toolkit/dist/blip-toolkit.css";
 
 // Theme customization
 @import "./app/theme/theme";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.cdk-global-overlay-wrapper,
+.cdk-overlay-container {
+  z-index: 99999 !important;
+}

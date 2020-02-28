@@ -9,6 +9,9 @@ import { LoadComponent } from './pages/load/load.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material-components.module';
 import { AddBotComponent } from './pages/add-bot/add-bot.component';
+import { LoadingService } from './services/loading.service';
+import { IframeService } from './services/iframe.service';
+import { BlipService } from './services/blip.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,11 @@ import { AddBotComponent } from './pages/add-bot/add-bot.component';
     SweetAlert2Module.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    LoadingService,
+    IframeService,
+    BlipService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
